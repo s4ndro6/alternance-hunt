@@ -368,16 +368,15 @@ textarea { resize: vertical; min-height: 80px; }
       <div class="form-header">
         <div class="form-badge">Premium</div>
         <h1 class="form-title">Accompagnement complet.</h1>
-        <p class="form-subtitle">Setup personnalise, CV optimise, suivi hebdo pendant 1 mois.</p>
+        <p class="form-subtitle">Analyse ATS de votre CV + CV optimise genere automatiquement.</p>
         <div class="price-tag">
-          <span class="amount">149&euro;</span>
+          <span class="amount">89&euro;</span>
           <span class="detail">paiement unique</span>
         </div>
         <div class="perks">
-          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91"/></svg> Appel 30 min</span>
-          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> CV optimise ATS</span>
+          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Analyse ATS + CV optimise</span>
           <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> LM retravaillee</span>
-          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Suivi 1 mois</span>
+          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Support prioritaire</span>
         </div>
         <div class="guarantee">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -406,17 +405,6 @@ textarea { resize: vertical; min-height: 80px; }
       <div class="form-group">
         <label>Telephone</label>
         <input type="tel" id="telephone" placeholder="06 12 34 56 78">
-      </div>
-
-      <div class="form-group">
-        <label>Creneau prefere pour un appel de 30 min avec Sandro <span class="required">*</span></label>
-        <select id="creneau" required>
-          <option value="" disabled selected>Choisis un creneau</option>
-          <option value="matin">Matin (9h - 12h)</option>
-          <option value="apres-midi">Apres-midi (14h - 18h)</option>
-          <option value="soir">Soir (18h - 21h)</option>
-          <option value="week-end">Week-end</option>
-        </select>
       </div>
 
       <div class="divider"></div>
@@ -485,7 +473,7 @@ textarea { resize: vertical; min-height: 80px; }
       </button>
 
       <p class="payment-step">Apres envoi du formulaire, finalise ton inscription :</p>
-      <a href="https://paypal.me/s4ndro6/149" target="_blank" class="paypal-btn">Payer 149&euro; via PayPal</a>
+      <a href="https://paypal.me/s4ndro6/89" target="_blank" class="paypal-btn">Payer 89&euro; via PayPal</a>
 
       <p class="form-footer">
         En t'inscrivant, tu acceptes que tes donnees soient utilisees uniquement pour ta recherche d'alternance.<br>
@@ -500,7 +488,7 @@ textarea { resize: vertical; min-height: 80px; }
       </div>
       <h2 class="success-title">C'est envoye !</h2>
       <p class="success-text">
-        Sandro te contacte sous 24h pour planifier ton appel de setup.
+        Sandro te contacte sous 24h pour lancer ton pipeline.
         <br><br>
         Verifie tes emails (et les spams).
       </p>
@@ -543,7 +531,6 @@ function submitForm() {
   const nom = document.getElementById('nom').value.trim();
   const email = document.getElementById('email').value.trim();
   const telephone = document.getElementById('telephone').value.trim();
-  const creneau = document.getElementById('creneau').value;
   const ville = document.getElementById('ville').value.trim();
   const contrat = document.getElementById('contrat').value;
   const precisions = document.getElementById('precisions').value.trim();
@@ -553,7 +540,7 @@ function submitForm() {
     domaines.push(cb.value);
   });
 
-  if (!prenom || !nom || !email || !ville || !creneau || domaines.length === 0) {
+  if (!prenom || !nom || !email || !ville || domaines.length === 0) {
     alert('Remplis tous les champs obligatoires (*)');
     return;
   }
@@ -562,8 +549,6 @@ function submitForm() {
     return;
   }
 
-  const creneauLabels = { 'matin': 'Matin (9h-12h)', 'apres-midi': 'Apres-midi (14h-18h)', 'soir': 'Soir (18h-21h)', 'week-end': 'Week-end' };
-
   const subject = encodeURIComponent('Alternance Hunt — Inscription Premium');
   const body = encodeURIComponent(
     `Nouvelle inscription PREMIUM Alternance Hunt\n` +
@@ -571,14 +556,13 @@ function submitForm() {
     `Prenom : ${prenom}\n` +
     `Nom : ${nom}\n` +
     `Email : ${email}\n` +
-    `Telephone : ${telephone || 'Non renseigne'}\n` +
-    `Creneau appel : ${creneauLabels[creneau] || creneau}\n\n` +
+    `Telephone : ${telephone || 'Non renseigne'}\n\n` +
     `Ville : ${ville}\n` +
     `Contrat : ${contrat}\n` +
     `Domaines : ${domaines.join(', ')}\n\n` +
     `Precisions : ${precisions || 'Aucune'}\n\n` +
     `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-    `Formule : PREMIUM (149 EUR)\n` +
+    `Formule : PREMIUM (89 EUR)\n` +
     `CV a envoyer en piece jointe dans un email separe.\n` +
     `Paiement : a confirmer via PayPal.`
   );
