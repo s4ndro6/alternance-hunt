@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternance Hunt — Inscription Premium</title>
+<meta name="description" content="Inscris-toi à la formule Premium d'Alternance Hunt — accompagnement complet avec Sandro.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #040404;
+  --bg-card: #0a0a0a;
+  --bg-input: #111111;
+  --border: rgba(255,255,255,0.06);
+  --border-focus: #10B981;
+  --accent: #10B981;
+  --accent-glow: rgba(16,185,129,0.15);
+  --accent-soft: rgba(16,185,129,0.08);
+  --text: #f0f0f0;
+  --text-muted: #777;
+  --text-dim: #555;
+  --danger: #ef4444;
+  --purple: #a78bfa;
+  --purple-soft: rgba(167,139,250,0.08);
+  --purple-glow: rgba(167,139,250,0.15);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(167,139,250,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(16,185,129,0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 580px;
+  animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 32px;
+  transition: color 0.3s;
+  letter-spacing: 0.02em;
+}
+
+.back-link:hover { color: var(--accent); }
+.back-link svg { width: 16px; height: 16px; }
+
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(var(--bg-card), var(--bg-card)), linear-gradient(160deg, var(--accent), var(--purple), var(--accent));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--accent), transparent);
+  opacity: 0.5;
+}
+
+.form-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(167,139,250,0.03), transparent 40%);
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 600px) {
+  .form-card { padding: 32px 20px; }
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: var(--purple-soft);
+  border: 1px solid rgba(167,139,250,0.2);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.form-title {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.form-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.form-group { margin-bottom: 24px; position: relative; z-index: 1; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+label .required { color: var(--accent); margin-left: 2px; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  -webkit-appearance: none;
+}
+
+input::placeholder, textarea::placeholder, select { color: var(--text-dim); }
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+select option { background: var(--bg-card); color: var(--text); }
+textarea { resize: vertical; min-height: 80px; }
+
+.file-upload {
+  position: relative;
+  border: 2px dashed rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 32px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+  background: var(--bg-input);
+  z-index: 1;
+}
+
+.file-upload:hover { border-color: rgba(16,185,129,0.3); background: var(--accent-soft); }
+.file-upload.dragover { border-color: var(--accent); background: var(--accent-soft); }
+.file-upload.has-file { border-color: var(--accent); border-style: solid; }
+.file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+.file-upload-icon {
+  width: 40px; height: 40px; margin: 0 auto 12px; border-radius: 10px;
+  background: var(--accent-soft); display: flex; align-items: center; justify-content: center;
+}
+.file-upload-icon svg { width: 20px; height: 20px; color: var(--accent); }
+.file-upload-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+.file-upload-text strong { color: var(--accent); font-weight: 600; }
+.file-upload-hint { font-size: 0.75rem; color: var(--text-dim); margin-top: 6px; }
+
+.file-name { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+.file-name svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.tag-option { display: inline-block; }
+.tag-option input { display: none; }
+
+.tag-option label {
+  display: inline-block; padding: 8px 16px;
+  background: var(--bg-input); border: 1px solid var(--border);
+  border-radius: 100px; font-size: 0.82rem; font-weight: 500;
+  color: var(--text-muted); cursor: pointer; transition: all 0.25s;
+  text-transform: none; letter-spacing: 0; margin-bottom: 0;
+}
+
+.tag-option input:checked + label {
+  background: var(--accent-soft); border-color: var(--accent); color: var(--accent);
+}
+
+.tag-option label:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
+
+.divider { height: 1px; background: var(--border); margin: 32px 0; position: relative; z-index: 1; }
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+
+.submit-btn {
+  width: 100%; padding: 16px 24px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  color: #fff; border: none; border-radius: var(--radius);
+  font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: all 0.3s; letter-spacing: 0.01em;
+  position: relative; overflow: hidden; z-index: 1;
+}
+
+.submit-btn::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%); transition: transform 0.5s;
+}
+
+.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 30px var(--purple-glow); }
+.submit-btn:hover::after { transform: translateX(100%); }
+.submit-btn:active { transform: translateY(0); }
+
+.form-footer {
+  text-align: center; margin-top: 20px;
+  font-size: 0.78rem; color: var(--text-dim); line-height: 1.6;
+  position: relative; z-index: 1;
+}
+.form-footer a { color: var(--accent); text-decoration: none; }
+
+.payment-step {
+  text-align: center; font-size: 0.85rem; color: var(--text-muted);
+  margin-top: 20px; margin-bottom: 12px; position: relative; z-index: 1;
+}
+
+.paypal-btn {
+  display: block; width: 100%; padding: 16px 24px;
+  background: #0070BA; color: #fff; border: none; border-radius: var(--radius);
+  font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600;
+  text-align: center; text-decoration: none; cursor: pointer;
+  transition: all 0.3s; letter-spacing: 0.01em; position: relative; z-index: 1;
+}
+
+.paypal-btn:hover {
+  background: #005EA6; transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0,112,186,0.25);
+}
+
+.price-tag { display: inline-flex; align-items: baseline; gap: 6px; margin: 16px 0 4px; }
+.price-tag .amount { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
+.price-tag .detail { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+
+.guarantee {
+  display: flex; align-items: center; gap: 8px; justify-content: center;
+  font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; margin-bottom: 24px;
+}
+.guarantee svg { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
+
+.perks {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  margin-bottom: 8px; position: relative; z-index: 1;
+}
+.perk {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; background: var(--purple-soft);
+  border: 1px solid rgba(167,139,250,0.15); border-radius: 100px;
+  font-size: 0.72rem; font-weight: 500; color: var(--purple);
+}
+.perk svg { width: 12px; height: 12px; }
+
+.success-state { display: none; text-align: center; padding: 40px 0; animation: fadeUp 0.5s ease-out; }
+.success-state.visible { display: block; }
+
+.success-icon {
+  width: 64px; height: 64px; margin: 0 auto 24px; border-radius: 50%;
+  background: var(--purple-soft); display: flex; align-items: center; justify-content: center;
+}
+.success-icon svg { width: 32px; height: 32px; color: var(--purple); }
+.success-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.success-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; max-width: 380px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Retour au site
+  </a>
+
+  <div class="form-card">
+    <!-- FORM -->
+    <div id="formContent">
+      <div class="form-header">
+        <div class="form-badge">Premium</div>
+        <h1 class="form-title">Accompagnement complet.</h1>
+        <p class="form-subtitle">Setup personnalise, CV optimise, suivi hebdo pendant 1 mois.</p>
+        <div class="price-tag">
+          <span class="amount">149&euro;</span>
+          <span class="detail">paiement unique</span>
+        </div>
+        <div class="perks">
+          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91"/></svg> Appel 30 min</span>
+          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> CV optimise ATS</span>
+          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> LM retravaillee</span>
+          <span class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Suivi 1 mois</span>
+        </div>
+        <div class="guarantee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Satisfait ou rembourse 14 jours
+        </div>
+      </div>
+
+      <div class="section-label">Tes infos</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prenom <span class="required">*</span></label>
+          <input type="text" id="prenom" placeholder="Ton prenom" required>
+        </div>
+        <div class="form-group">
+          <label>Nom <span class="required">*</span></label>
+          <input type="text" id="nom" placeholder="Ton nom" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email <span class="required">*</span></label>
+        <input type="email" id="email" placeholder="ton@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Telephone</label>
+        <input type="tel" id="telephone" placeholder="06 12 34 56 78">
+      </div>
+
+      <div class="form-group">
+        <label>Creneau prefere pour un appel de 30 min avec Sandro <span class="required">*</span></label>
+        <select id="creneau" required>
+          <option value="" disabled selected>Choisis un creneau</option>
+          <option value="matin">Matin (9h - 12h)</option>
+          <option value="apres-midi">Apres-midi (14h - 18h)</option>
+          <option value="soir">Soir (18h - 21h)</option>
+          <option value="week-end">Week-end</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">Ton CV</div>
+
+      <div class="form-group">
+        <div class="file-upload" id="fileUpload">
+          <input type="file" id="cvFile" accept=".pdf,.doc,.docx">
+          <div id="uploadContent">
+            <div class="file-upload-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+            </div>
+            <div class="file-upload-text"><strong>Clique ou glisse</strong> ton CV ici</div>
+            <div class="file-upload-hint">PDF ou Word &middot; 10MB max</div>
+          </div>
+          <div id="fileInfo" style="display:none;">
+            <div class="file-name">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span id="fileName"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">Tes criteres</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ville souhaitee <span class="required">*</span></label>
+          <input type="text" id="ville" placeholder="Lille, Paris, Lyon..." required>
+        </div>
+        <div class="form-group">
+          <label>Type de contrat</label>
+          <select id="contrat">
+            <option value="alternance">Alternance</option>
+            <option value="stage">Stage</option>
+            <option value="les-deux">Les deux</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Domaines recherches <span class="required">*</span></label>
+        <div class="tags-container">
+          <div class="tag-option"><input type="checkbox" id="d1" name="domaine" value="Marketing digital"><label for="d1">Marketing digital</label></div>
+          <div class="tag-option"><input type="checkbox" id="d2" name="domaine" value="Design / Creation"><label for="d2">Design / Creation</label></div>
+          <div class="tag-option"><input type="checkbox" id="d3" name="domaine" value="Developpement web"><label for="d3">Developpement web</label></div>
+          <div class="tag-option"><input type="checkbox" id="d4" name="domaine" value="IA / Data"><label for="d4">IA / Data</label></div>
+          <div class="tag-option"><input type="checkbox" id="d5" name="domaine" value="Communication"><label for="d5">Communication</label></div>
+          <div class="tag-option"><input type="checkbox" id="d6" name="domaine" value="Commerce / Vente"><label for="d6">Commerce / Vente</label></div>
+          <div class="tag-option"><input type="checkbox" id="d7" name="domaine" value="Gestion de projet"><label for="d7">Gestion de projet</label></div>
+          <div class="tag-option"><input type="checkbox" id="d8" name="domaine" value="Autre"><label for="d8">Autre</label></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Precisions</label>
+        <textarea id="precisions" placeholder="Details supplementaires, preferences, contraintes..."></textarea>
+      </div>
+
+      <div class="divider"></div>
+
+      <button class="submit-btn" id="submitBtn" onclick="submitForm()">
+        Rejoindre le Premium &rarr;
+      </button>
+
+      <p class="payment-step">Apres envoi du formulaire, finalise ton inscription :</p>
+      <a href="https://paypal.me/s4ndro6/149" target="_blank" class="paypal-btn">Payer 149&euro; via PayPal</a>
+
+      <p class="form-footer">
+        En t'inscrivant, tu acceptes que tes donnees soient utilisees uniquement pour ta recherche d'alternance.<br>
+        Questions ? <a href="mailto:alessandroschillaci05@yahoo.com">alessandroschillaci05@yahoo.com</a>
+      </p>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h2 class="success-title">C'est envoye !</h2>
+      <p class="success-text">
+        Sandro te contacte sous 24h pour planifier ton appel de setup.
+        <br><br>
+        Verifie tes emails (et les spams).
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+const fileUpload = document.getElementById('fileUpload');
+const cvFile = document.getElementById('cvFile');
+const uploadContent = document.getElementById('uploadContent');
+const fileInfo = document.getElementById('fileInfo');
+const fileNameSpan = document.getElementById('fileName');
+
+cvFile.addEventListener('change', (e) => {
+  if (e.target.files.length > 0) {
+    const file = e.target.files[0];
+    fileNameSpan.textContent = file.name + ' (' + (file.size / 1024 / 1024).toFixed(1) + ' MB)';
+    uploadContent.style.display = 'none';
+    fileInfo.style.display = 'flex';
+    fileInfo.style.justifyContent = 'center';
+    fileInfo.style.padding = '8px 0';
+    fileUpload.classList.add('has-file');
+  }
+});
+
+['dragenter', 'dragover'].forEach(event => {
+  fileUpload.addEventListener(event, (e) => { e.preventDefault(); fileUpload.classList.add('dragover'); });
+});
+['dragleave', 'drop'].forEach(event => {
+  fileUpload.addEventListener(event, (e) => { e.preventDefault(); fileUpload.classList.remove('dragover'); });
+});
+fileUpload.addEventListener('drop', (e) => {
+  cvFile.files = e.dataTransfer.files;
+  cvFile.dispatchEvent(new Event('change'));
+});
+
+function submitForm() {
+  const prenom = document.getElementById('prenom').value.trim();
+  const nom = document.getElementById('nom').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const telephone = document.getElementById('telephone').value.trim();
+  const creneau = document.getElementById('creneau').value;
+  const ville = document.getElementById('ville').value.trim();
+  const contrat = document.getElementById('contrat').value;
+  const precisions = document.getElementById('precisions').value.trim();
+
+  const domaines = [];
+  document.querySelectorAll('input[name="domaine"]:checked').forEach(cb => {
+    domaines.push(cb.value);
+  });
+
+  if (!prenom || !nom || !email || !ville || !creneau || domaines.length === 0) {
+    alert('Remplis tous les champs obligatoires (*)');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Email invalide');
+    return;
+  }
+
+  const creneauLabels = { 'matin': 'Matin (9h-12h)', 'apres-midi': 'Apres-midi (14h-18h)', 'soir': 'Soir (18h-21h)', 'week-end': 'Week-end' };
+
+  const subject = encodeURIComponent('Alternance Hunt — Inscription Premium');
+  const body = encodeURIComponent(
+    `Nouvelle inscription PREMIUM Alternance Hunt\n` +
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+    `Prenom : ${prenom}\n` +
+    `Nom : ${nom}\n` +
+    `Email : ${email}\n` +
+    `Telephone : ${telephone || 'Non renseigne'}\n` +
+    `Creneau appel : ${creneauLabels[creneau] || creneau}\n\n` +
+    `Ville : ${ville}\n` +
+    `Contrat : ${contrat}\n` +
+    `Domaines : ${domaines.join(', ')}\n\n` +
+    `Precisions : ${precisions || 'Aucune'}\n\n` +
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+    `Formule : PREMIUM (149 EUR)\n` +
+    `CV a envoyer en piece jointe dans un email separe.\n` +
+    `Paiement : a confirmer via PayPal.`
+  );
+
+  window.location.href = `mailto:alessandroschillaci05@yahoo.com?subject=${subject}&body=${body}`;
+
+  setTimeout(() => {
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('successState').classList.add('visible');
+  }, 1000);
+}
+</script>
+</body>
+</html>

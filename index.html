@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternance Hunt — Candidatures automatiques par IA</title>
+<meta name="description" content="Le systeme IA qui envoie des candidatures d'alternance personnalisees pendant que tu dors. 320+ candidatures deja envoyees.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="grain"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner wrap">
+    <a href="#" class="logo" data-cursor="link">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <rect x="4" y="10" width="24" height="16" rx="5" fill="#10B981"/>
+        <rect x="10" y="4" width="12" height="8" rx="4" fill="#10B981" opacity=".4"/>
+        <circle cx="12" cy="18" r="2.5" fill="#050505"/>
+        <circle cx="20" cy="18" r="2.5" fill="#050505"/>
+        <rect x="13" y="23" width="6" height="1.5" rx=".75" fill="#050505" opacity=".6"/>
+      </svg>
+      <span>Alternance Hunt</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features" data-cursor="link">Fonctionnalites</a>
+      <a href="#how" data-cursor="link">Comment ca marche</a>
+      <a href="#pricing" data-cursor="link">Tarifs</a>
+      <a href="#pricing" class="btn btn-sm" data-cursor="link">Commencer</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-mesh"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-badge" data-animate="badge">
+      <span class="badge-pulse"></span>
+      <span class="badge-text">320+ candidatures envoyees</span>
+      <span class="badge-tag">Operationnel</span>
+    </div>
+    <h1 data-split="words">
+      <span class="line">Tes candidatures d'alternance.</span>
+      <span class="line"><em>En pilote automatique.</em></span>
+    </h1>
+    <p class="hero-sub" data-animate="sub">Alternance Hunt scrape les offres, genere des lettres de motivation par IA et envoie tes candidatures. Chaque jour. Pendant que tu dors.</p>
+    <div class="hero-ctas" data-animate="ctas">
+      <a href="#pricing" class="btn btn-primary btn-lg btn-shimmer" data-cursor="link">Decouvrir les offres <span class="arrow">&rarr;</span></a>
+      <a href="#how" class="btn btn-ghost btn-lg" data-cursor="link">Comment ca marche</a>
+    </div>
+    <p class="hero-note" data-animate="note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Satisfait ou rembourse 14 jours &middot; Paiement unique
+    </p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>La Bonne Alternance</span><span class="dot">&bull;</span>
+      <span>France Travail</span><span class="dot">&bull;</span>
+      <span>Indeed</span><span class="dot">&bull;</span>
+      <span>Welcome to the Jungle</span><span class="dot">&bull;</span>
+      <span>LinkedIn</span><span class="dot">&bull;</span>
+      <span>HelloWork</span><span class="dot">&bull;</span>
+      <span>La Bonne Alternance</span><span class="dot">&bull;</span>
+      <span>France Travail</span><span class="dot">&bull;</span>
+      <span>Indeed</span><span class="dot">&bull;</span>
+      <span>Welcome to the Jungle</span><span class="dot">&bull;</span>
+      <span>LinkedIn</span><span class="dot">&bull;</span>
+      <span>HelloWork</span><span class="dot">&bull;</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item" data-scroll-reveal>
+        <span class="stat-num" data-count="320" data-suffix="+">0</span>
+        <div class="stat-bar"></div>
+        <span class="stat-label">Candidatures envoyees</span>
+      </div>
+      <div class="stat-item" data-scroll-reveal>
+        <span class="stat-num" data-count="94">0</span>
+        <div class="stat-bar"></div>
+        <span class="stat-label">Via API La Bonne Alternance</span>
+      </div>
+      <div class="stat-item" data-scroll-reveal>
+        <span class="stat-num" data-count="226">0</span>
+        <div class="stat-bar"></div>
+        <span class="stat-label">Via email direct</span>
+      </div>
+      <div class="stat-item" data-scroll-reveal>
+        <span class="stat-num" data-count="5" data-suffix="+">0</span>
+        <div class="stat-bar"></div>
+        <span class="stat-label">Plateformes scrapees</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section-alt problem" id="problem">
+  <div class="wrap">
+    <span class="label" data-scroll-reveal>Le probleme</span>
+    <h2 data-split="chars">Chercher une alternance, c'est un job a plein temps.</h2>
+    <div class="problem-grid">
+      <div class="glass-card" data-scroll-reveal data-tilt>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Ca prend des heures</h3>
+        <p>Recherche, lecture, personnalisation de la LM, envoi, relance. A multiplier par 50 chaque semaine.</p>
+      </div>
+      <div class="glass-card" data-scroll-reveal data-tilt>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Les offres disparaissent</h3>
+        <p>Une bonne offre dure 24 a 48h. Le temps que tu la voies, c'est deja trop tard.</p>
+      </div>
+      <div class="glass-card" data-scroll-reveal data-tilt>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>LM generiques = poubelle</h3>
+        <p>Copier-coller la meme lettre en changeant le nom. Les RH le detectent en 3 secondes.</p>
+      </div>
+      <div class="glass-card" data-scroll-reveal data-tilt>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Stress et mauvais matchs</h3>
+        <p>A force de galerer, on accepte n'importe quoi. Meme si ca ne correspond pas du tout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHRASE CHOC -->
+<section class="punch">
+  <div class="wrap">
+    <h2 class="punch-text" data-split="chars">Et si tes candidatures s'envoyaient toutes seules ?</h2>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="label" data-scroll-reveal>En pratique</span>
+      <h2 data-split="chars">3 minutes de setup. Des semaines de resultats.</h2>
+    </div>
+    <div class="timeline" id="timeline">
+      <svg class="tl-svg" viewBox="0 0 2 1000" preserveAspectRatio="none">
+        <defs><linearGradient id="tl-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10B981"/><stop offset="50%" stop-color="#06B6D4"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs>
+        <line x1="1" y1="0" x2="1" y2="1000" stroke="#1a1c2e" stroke-width="2"/>
+        <line x1="1" y1="0" x2="1" y2="1000" stroke="url(#tl-grad)" stroke-width="2" stroke-linecap="round" id="tl-progress"/>
+      </svg>
+      <div class="tl-steps">
+        <div class="tl-step" data-scroll-reveal>
+          <div class="tl-dot"><span>01</span></div>
+          <div class="tl-card glass-card" data-tilt>
+            <div class="tl-visual">
+              <div class="mock-upload">
+                <div class="mu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg></div>
+                <span class="mu-text">Glisse ton CV ici</span>
+                <span class="mu-hint">PDF, DOCX &middot; 10MB max</span>
+                <span class="mu-btn">Parcourir</span>
+              </div>
+            </div>
+            <div class="tl-body"><h3>Upload ton CV</h3><p>Cree ton compte et depose ton CV. Le systeme analyse ton profil automatiquement.</p></div>
+          </div>
+        </div>
+        <div class="tl-step" data-scroll-reveal>
+          <div class="tl-dot"><span>02</span></div>
+          <div class="tl-card glass-card" data-tilt>
+            <div class="tl-visual">
+              <div class="mock-filters">
+                <div class="mf"><span class="mf-l">Ville</span><span class="mf-v">Lille, Villeneuve d'Ascq</span></div>
+                <div class="mf"><span class="mf-l">Domaine</span><span class="mf-v">Chef de projet digital</span></div>
+                <div class="mf"><span class="mf-l">Contrat</span><span class="mf-v">Alternance</span></div>
+                <div class="mf-tags"><span class="mt g">Marketing digital</span><span class="mt c">Growth</span><span class="mt v">IA / Automation</span></div>
+              </div>
+            </div>
+            <div class="tl-body"><h3>Configure tes criteres</h3><p>Ville, domaine, type de contrat. Tu decides ce que tu cherches.</p></div>
+          </div>
+        </div>
+        <div class="tl-step" data-scroll-reveal>
+          <div class="tl-dot"><span>03</span></div>
+          <div class="tl-card glass-card" data-tilt>
+            <div class="tl-visual">
+              <div class="mock-dash">
+                <div class="md-row"><span class="md-dot sent"></span><div class="md-body"><span class="md-t">Chef de projet — Decathlon</span><span class="md-s">Envoye &middot; LBA</span></div><span class="md-score">9/10</span></div>
+                <div class="md-row"><span class="md-dot sent"></span><div class="md-body"><span class="md-t">Growth Manager — OVHcloud</span><span class="md-s">Envoye &middot; Email</span></div><span class="md-score">8/10</span></div>
+                <div class="md-row"><span class="md-dot pending"></span><div class="md-body"><span class="md-t">Marketing Auto — Ankama</span><span class="md-s">En cours &middot; WTTJ</span></div><span class="md-score">9/10</span></div>
+                <div class="md-row"><span class="md-dot new"></span><div class="md-body"><span class="md-t">PM Digital — Adeo</span><span class="md-s">Nouveau &middot; HelloWork</span></div><span class="md-score">7/10</span></div>
+              </div>
+            </div>
+            <div class="tl-body"><h3>Laisse tourner</h3><p>Le systeme envoie chaque jour. Tu suis tout depuis ton dashboard.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-alt features" id="features">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="label" data-scroll-reveal>Fonctionnalites</span>
+      <h2 data-split="chars">Tout ce que tu fais a la main. En automatique.</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>Scraping multi-plateforme</h3><p>LBA, WTTJ, HelloWork, France Travail et plus. Rien ne passe entre les mailles.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3>Filtrage IA intelligent</h3><p>Chaque offre scoree selon ton profil. Seules les pertinentes passent.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><h3>LM uniques par offre</h3><p>Chaque candidature a sa propre lettre, adaptee au poste et a l'entreprise.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div><h3>Envoi via API officielle</h3><p>API La Bonne Alternance + email direct. Les bons canaux.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><h3>Dashboard temps reel</h3><p>Candidatures, scores, statuts et LM en un coup d'oeil.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Messages LinkedIn</h3><p>Messages courts et personnalises pour contacter les recruteurs.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Scoring de pertinence</h3><p>Score sur 10 par l'IA. Les meilleures opportunites en premier.</p></div>
+      <div class="feat glass-card" data-scroll-reveal data-tilt><div class="fi violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><h3>Donnees protegees</h3><p>Rien n'est revendu. Suppression sur simple demande.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="label" data-scroll-reveal>Pourquoi Alternance Hunt</span>
+      <h2 data-split="chars">6 raisons de ne plus candidater a la main.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card glass-card" data-scroll-reveal data-tilt>
+        <div class="fi green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>Multi-plateforme</h3>
+        <p>Scrape 6+ sites en parallele. LBA, France Travail, Indeed, WTTJ, LinkedIn, HelloWork.</p>
+      </div>
+      <div class="why-card glass-card" data-scroll-reveal data-tilt>
+        <div class="fi violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>IA personnalisee</h3>
+        <p>Chaque lettre de motivation est unique, generee par IA et adaptee a l'offre specifique.</p>
+      </div>
+      <div class="why-card glass-card" data-scroll-reveal data-tilt>
+        <div class="fi cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>API officielle</h3>
+        <p>Utilise l'API de La Bonne Alternance, le service du gouvernement. 100% legal et transparent.</p>
+      </div>
+      <div class="why-card glass-card" data-scroll-reveal data-tilt>
+        <div class="fi warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+        <h3>Filtres avances</h3>
+        <p>Ville, domaine, type de contrat, salaire. Tu ne recois que les offres qui te correspondent.</p>
+      </div>
+      <div class="why-card glass-card" data-scroll-reveal data-tilt>
+        <div class="fi green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Dashboard temps reel</h3>
+        <p>Suis chaque candidature : envoyee, en attente, reponse. Tout visible en un coup d'oeil.</p>
+      </div>
+      <div class="why-card glass-card" data-scroll-reveal data-tilt>
+        <div class="fi rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>Zero spam</h3>
+        <p>Les emails partent en ton nom, avec ton CV, vers de vraies entreprises. Pas de mass-mailing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGE -->
+<section class="testimonial">
+  <div class="wrap">
+    <blockquote class="testimonial-quote" data-scroll-reveal>
+      <p>&laquo; J'ai envoye 320+ candidatures en quelques semaines alors que manuellement j'en faisais 5 par jour. Le systeme tourne, je me concentre sur les entretiens. &raquo;</p>
+      <cite>&mdash; Sandro, createur d'Alternance Hunt et premier utilisateur</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="label" data-scroll-reveal>Tarifs</span>
+      <h2 data-split="chars">Un paiement. Zero abonnement.</h2>
+      <p class="section-sub" data-scroll-reveal>Pas de frais caches, pas de renouvellement. Tu paies une fois.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card glass-card" data-scroll-reveal data-tilt>
+        <span class="pc-name">Essentiel</span>
+        <div class="pc-price">49&euro;<span>unique</span></div>
+        <p class="pc-desc">Tout ce qu'il faut pour automatiser ta recherche.</p>
+        <ul class="pc-list">
+          <li>Acces complet a la plateforme</li>
+          <li>Upload de ton CV</li>
+          <li>Choix de tes criteres</li>
+          <li>Candidatures automatiques quotidiennes</li>
+          <li>Dashboard de suivi en temps reel</li>
+          <li>Support par email</li>
+        </ul>
+        <a href="inscription.html" class="btn btn-ghost btn-full btn-shimmer" data-cursor="link">Choisir Essentiel</a>
+      </div>
+      <div class="price-card glass-card featured" data-scroll-reveal data-tilt>
+        <div class="featured-glow"></div>
+        <span class="pc-name accent">Premium</span>
+        <div class="pc-price">149&euro;<span>unique</span></div>
+        <p class="pc-desc">Accompagnement complet pour maximiser tes chances.</p>
+        <ul class="pc-list">
+          <li>Tout de la formule Essentiel</li>
+          <li>Appel de setup personnalise (30 min)</li>
+          <li>CV optimise pour les filtres ATS</li>
+          <li>Lettre de motivation master retravaillee</li>
+          <li>Suivi hebdomadaire pendant 1 mois</li>
+          <li>Support prioritaire par email</li>
+        </ul>
+        <a href="inscription-premium.html" class="btn btn-primary btn-full btn-shimmer" data-cursor="link">Choisir Premium <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="guarantee" data-scroll-reveal>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Satisfait ou rembourse sous 14 jours. Sans condition.
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-alt faq" id="faq">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="label" data-scroll-reveal>FAQ</span>
+      <h2 data-split="chars">Questions frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" data-scroll-reveal>
+        <button class="faq-q" data-cursor="link">C'est legal d'envoyer des candidatures automatiquement ?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in">Oui. Le systeme utilise l'API officielle de La Bonne Alternance (service public) et envoie des emails classiques. Chaque candidature est une vraie candidature avec un vrai CV et une lettre personnalisee. Rien de different de ce que tu ferais a la main — juste beaucoup plus rapide.</div></div>
+      </div>
+      <div class="faq-item" data-scroll-reveal>
+        <button class="faq-q" data-cursor="link">Qu'est-ce que vous faites avec mes donnees ?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in">Ton CV et tes informations servent uniquement a generer et envoyer tes candidatures. Rien n'est revendu ni partage. Suppression de toutes tes donnees sur simple email.</div></div>
+      </div>
+      <div class="faq-item" data-scroll-reveal>
+        <button class="faq-q" data-cursor="link">Qui est derriere Alternance Hunt ?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in">Sandro, etudiant en B1 Chef de Projets Digitaux a Ynov Lille. Le systeme est ne d'un besoin personnel : automatiser sa propre recherche d'alternance. 320+ candidatures plus tard, il le rend accessible aux autres.</div></div>
+      </div>
+      <div class="faq-item" data-scroll-reveal>
+        <button class="faq-q" data-cursor="link">Comment fonctionne le remboursement ?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in">Tu as 14 jours pour changer d'avis — c'est le delai legal de retractation en France. Un simple email suffit. Remboursement integral, sans justification.</div></div>
+      </div>
+      <div class="faq-item" data-scroll-reveal>
+        <button class="faq-q" data-cursor="link">Ca marche pour d'autres villes que Lille ?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in">Oui. Tu choisis tes criteres de localisation lors du setup. Le systeme scrape partout en France — Lille, Paris, Lyon, remote.</div></div>
+      </div>
+      <div class="faq-item" data-scroll-reveal>
+        <button class="faq-q" data-cursor="link">Combien de candidatures par jour ?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in">En moyenne 5 a 20 candidatures pertinentes par jour, chacune avec sa propre lettre de motivation generee par IA.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="cta">
+  <div class="cta-bg"></div>
+  <div class="wrap final-cta-inner">
+    <span class="label" data-scroll-reveal>Pret ?</span>
+    <h2 data-split="chars">Septembre 2026, c'est dans <span class="nowrap">6 mois.</span></h2>
+    <p data-scroll-reveal>Pendant que les autres passent des heures sur des LM generiques, tes candidatures personnalisees sont deja envoyees.</p>
+    <a href="#pricing" class="btn btn-primary btn-lg btn-shimmer" data-scroll-reveal data-cursor="link">Voir les offres &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="https://portfolio-sandro-ten.vercel.app" target="_blank" data-cursor="link">Portfolio</a>
+      <a href="https://linkedin.com/in/sandrosch" target="_blank" data-cursor="link">LinkedIn</a>
+      <a href="mailto:alessandroschillaci05@yahoo.com" data-cursor="link">Email</a>
+    </div>
+    <p class="footer-copy">Fait avec passion a Lille &#127467;&#127479; &mdash; 2026</p>
+  </div>
+</footer>
+
+<!-- CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+<!-- APP -->
+<script src="js/text-split.js"></script>
+<script src="js/lenis.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/counters.js"></script>
+<script src="js/gsap-animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════
+   ALTERNANCE HUNT — ANIMATIONS & KEYFRAMES
+   ═══════════════════════════════════════════ */
+
+@keyframes ring {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes icon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes cta-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 20px var(--accent-glow);
+  }
+  50% {
+    text-shadow:
+      0 0 40px var(--accent-glow),
+      0 0 80px rgba(16, 185, 129, 0.1);
+  }
+}
+
+/* Split text chars initial state */
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) rotate(3deg);
+}
+
+/* Scroll reveal initial states (GSAP will animate these) */
+[data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Tilt cards perspective container */
+[data-tilt] {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+/* Timeline dot active state */
+.tl-dot.active {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 20px var(--accent-glow),
+    0 0 40px rgba(16, 185, 129, 0.08);
+}
+
+/* Counter glow */
+.stat-num.glow {
+  animation: glow-pulse 1.5s ease-in-out;
+}
+
+/* Mobile: disable heavy effects */
+@media (pointer: coarse), (max-width: 768px) {
+  [data-tilt] {
+    transform: none !important;
+    perspective: none;
+  }
+  .glass-card::after {
+    display: none;
+  }
+  .hero-mesh {
+    display: none;
+  }
+}
