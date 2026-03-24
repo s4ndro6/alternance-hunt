@@ -40,6 +40,8 @@ body {
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -75,12 +77,14 @@ h3 {
   font-family: var(--font-display);
   font-weight: 400;
   letter-spacing: 0.02em;
-  line-height: 1;
+  line-height: 1.1;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h1 {
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(3.5rem, 9vw, 7rem);
 }
 h2 {
   font-size: clamp(2rem, 5vw, 4rem);
@@ -89,6 +93,7 @@ h3 {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.03em;
+  text-transform: none;
 }
 
 .section-label {
@@ -102,9 +107,12 @@ h3 {
 }
 
 .section-title {
-  font-size: clamp(3rem, 8vw, 7rem);
-  margin-bottom: 4rem;
-  line-height: 0.95;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  margin-bottom: 3rem;
+  line-height: 1.05;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .section-title .accent {
@@ -304,7 +312,7 @@ section {
   align-items: center;
   padding: 140px 0 80px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-top: none;
 }
 #particle-canvas {
@@ -313,6 +321,7 @@ section {
   width: 100%;
   height: 100%;
   z-index: 0;
+  overflow: hidden;
 }
 .hero-inner {
   position: relative;
@@ -402,7 +411,7 @@ section {
   font-size: clamp(3rem, 6vw, 5rem);
   color: var(--accent);
   display: block;
-  line-height: 1;
+  line-height: 1.1;
 }
 .stat-label {
   font-size: 0.8rem;
@@ -441,6 +450,8 @@ section {
   letter-spacing: 0.03em;
   color: var(--text);
   margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 .skill-desc {
   font-size: 0.875rem;
@@ -469,6 +480,8 @@ section {
   color: var(--text);
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 .problem-card p {
   font-size: 0.875rem;
@@ -503,13 +516,15 @@ section {
   font-size: 3rem;
   color: var(--accent);
   display: block;
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
 }
 .how-card h3 {
   color: var(--text);
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 .how-card p {
   font-size: 0.875rem;
@@ -529,12 +544,13 @@ section {
   border: 1px solid var(--border);
 }
 .testimonial-quote p {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3vw, 2rem);
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.7;
   color: var(--text);
   margin-bottom: 1.5rem;
-  text-transform: uppercase;
+  font-weight: 300;
+  font-style: italic;
 }
 .testimonial-quote cite {
   font-style: normal;
@@ -593,7 +609,7 @@ section {
   font-size: 4rem;
   color: var(--text);
   margin: 0.5rem 0;
-  line-height: 1;
+  line-height: 1.1;
 }
 .pricing-price span {
   font-family: var(--font-body);
@@ -754,8 +770,9 @@ footer {
     padding: 0 1.25rem;
   }
   .section-title {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-    margin-bottom: 2.5rem;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    margin-bottom: 2rem;
+    line-height: 1.1;
   }
 
   /* Grilles → colonne unique */
@@ -813,7 +830,7 @@ footer {
     flex-direction: column;
   }
   .nav-overlay a {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -825,7 +842,7 @@ footer {
     padding-top: 100px;
   }
   .hero h1 {
-    font-size: clamp(3rem, 14vw, 5rem);
+    font-size: clamp(2.5rem, 12vw, 4rem);
   }
   .hero-sub {
     font-size: 0.875rem;
